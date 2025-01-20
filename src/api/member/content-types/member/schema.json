@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "singularName": "member",
+    "pluralName": "members",
+    "displayName": "Member",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Role": {
+      "type": "enumeration",
+      "enum": [
+        "Parent",
+        "Child"
+      ],
+      "required": true
+    },
+    "Color": {
+      "type": "enumeration",
+      "enum": [
+        "Blue",
+        "Green",
+        "Red",
+        "Yellow",
+        "Purple",
+        "Orange",
+        "Teal",
+        "Pink",
+        "Brown",
+        "Gray"
+      ]
+    },
+    "Events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event",
+      "mappedBy": "Member"
+    },
+    "Family": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::family.family",
+      "inversedBy": "Members"
+    }
+  }
+}
